@@ -11,7 +11,7 @@ class ComputerNumberTest {
     @Test
     void Random_길이_테스트() throws Exception{
         for(int i = 0;i<10;i++){
-            List<Integer> result = ComputerNumber.createRandomNumber();
+            List<Integer> result = new ComputerNumber().computerNumber;
             System.out.println(result);
             assertEquals(3,result.size());
         }
