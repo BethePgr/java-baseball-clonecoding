@@ -14,7 +14,7 @@ public class OutputView {
         this.result = result;
     }
 
-    private void printGameResult(){
+    public void printGameResult(){
         printAllBall();
         printAllStrike();
         printNothing();
