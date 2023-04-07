@@ -9,37 +9,37 @@ import java.util.List;
 
 public class BaseballGameController {
 
-    public void run(){
+    public void run() {
         runOneCycle();
-        if(choiceRestart()){
+        if (choiceRestart()) {
             runOneCycle();
         }
     }
 
-    private void runOneCycle(){
+    private void runOneCycle() {
         int strikeCount;
         List<Integer> computerNums = new ComputerNumber().computerNumber;
-        do{
+        do {
             List<Integer> userNums = new UserNumber(InputView.printInputNumberMessage()).userNumber;
-            GameResult result = new GameResult(computerNums,userNums);
+            GameResult result = new GameResult(computerNums, userNums);
             strikeCount = result.strikeCount;
             new OutputView(result).printGameResult();
-        }while(!isGameEnd(strikeCount));
+        } while (!isGameEnd(strikeCount));
     }
 
-    private boolean isGameEnd(int result){
+    private boolean isGameEnd(int result) {
         return result == 3;
     }
 
-    private boolean choiceRestart() throws IllegalArgumentException{
+    private boolean choiceRestart() throws IllegalArgumentException {
         String userChoice = InputView.printInputRestartMessage();
-        if(!isRightInput(userChoice)){
+        if (!isRightInput(userChoice)) {
             throw new IllegalArgumentException();
         }
         return userChoice.equals("1");
     }
 
-    private boolean isRightInput(String input){
+    private boolean isRightInput(String input) {
         return input.equals("1") || input.equals("2");
     }
 

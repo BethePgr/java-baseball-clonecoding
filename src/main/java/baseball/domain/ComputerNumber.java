@@ -11,23 +11,26 @@ public class ComputerNumber {
     private static final int START_RANGE = 1;
     private static final int END_LENGTH = 9;
     public final List<Integer> computerNumber;
-    public ComputerNumber(){
+
+    public ComputerNumber() {
         this.computerNumber = createRandomNumber();
     }
-    private List<Integer> createRandomNumber(){
+
+    private List<Integer> createRandomNumber() {
         List<Integer> randomNumbers = pickRandomNumber();
-        if(isDuplicate(randomNumbers)){
+        if (isDuplicate(randomNumbers)) {
             return randomNumbers;
         }
         return createRandomNumber();
     }
 
-    private  List<Integer> pickRandomNumber(){
+    private List<Integer> pickRandomNumber() {
         return Arrays.stream(new List[NUMBER_LENGTH])
-            .map(num -> Randoms.pickNumberInRange(START_RANGE,END_LENGTH)).collect(Collectors.toList());
+            .map(num -> Randoms.pickNumberInRange(START_RANGE, END_LENGTH))
+            .collect(Collectors.toList());
     }
 
-    private  boolean isDuplicate(List<Integer> randomNums){
+    private boolean isDuplicate(List<Integer> randomNums) {
         return NUMBER_LENGTH == randomNums.stream().distinct().count();
     }
 

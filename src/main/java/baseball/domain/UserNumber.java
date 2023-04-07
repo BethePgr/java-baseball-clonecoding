@@ -9,13 +9,13 @@ public class UserNumber {
     private static final int NUMBER_LENGTH = 3;
     public final List<Integer> userNumber;
 
-    public UserNumber(String userInput){
+    public UserNumber(String userInput) {
         this.userNumber = createUserNumber(userInput);
     }
 
-    private List<Integer> createUserNumber(String str) throws IllegalArgumentException{
+    private List<Integer> createUserNumber(String str) throws IllegalArgumentException {
         int[] userNumber = convertStringToInt(str);
-        if(checkValidNumber(userNumber)){
+        if (checkValidNumber(userNumber)) {
             return Arrays.stream(userNumber).boxed().collect(Collectors.toList());
         }
         throw new IllegalArgumentException();
@@ -25,8 +25,8 @@ public class UserNumber {
         return isRightRange(userNums) && isNumber(userNums) && isNotDuplicate(userNums);
     }
 
-    private boolean isNumber(int[] userNums){
-        return Arrays.stream(userNums).allMatch(num -> num>=1 && num <= 9);
+    private boolean isNumber(int[] userNums) {
+        return Arrays.stream(userNums).allMatch(num -> num >= 1 && num <= 9);
     }
 
     private boolean isNotDuplicate(int[] userNums) {
@@ -37,7 +37,7 @@ public class UserNumber {
         return userNums.length == NUMBER_LENGTH;
     }
 
-    private int[] convertStringToInt(String str){
+    private int[] convertStringToInt(String str) {
         return str.chars().map(num -> num - '0').toArray();
     }
 
