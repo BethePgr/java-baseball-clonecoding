@@ -37,4 +37,12 @@ class UserNumberTest {
         });
     }
 
+    @Test
+    void 숫자_제대로_받는지_확인() throws Exception{
+        //given
+        String input = "123";
+        int [] nums = {1,2,3};
+        int[] userNums = new UserNumber(input).getUserNumber().stream().mapToInt(num -> num).toArray();
+        assertArrayEquals(nums,userNums);
+    }
 }

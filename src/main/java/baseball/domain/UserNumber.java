@@ -9,7 +9,7 @@ public class UserNumber {
     private static final int NUMBER_LENGTH = 3;
     private static final int START_NUMBER = 1;
     private static final int END_NUMBER = 9;
-    public final List<Integer> userNumber;
+    private final List<Integer> userNumber;
 
     public UserNumber(String userInput) {
         this.userNumber = createUserNumber(userInput);
@@ -43,4 +43,7 @@ public class UserNumber {
         return str.chars().map(num -> num - '0').toArray();
     }
 
+    public List<Integer> getUserNumber(){
+        return userNumber;
+    }
 }

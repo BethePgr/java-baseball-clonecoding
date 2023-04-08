@@ -11,9 +11,18 @@ class ComputerNumberTest {
     @Test
     void Random_길이_테스트() throws Exception{
         for(int i = 0;i<10;i++){
-            List<Integer> result = new ComputerNumber().computerNumber;
+            List<Integer> result = new ComputerNumber().getComputerNumber();
             System.out.println(result);
             assertEquals(3,result.size());
+        }
+
+    }
+
+    @Test
+    void 숫자_중복_테스트() throws Exception{
+        for(int i = 0;i<10;i++){
+            int result = (int)new ComputerNumber().getComputerNumber().stream().distinct().count();
+            assertEquals(3,result);
         }
 
     }

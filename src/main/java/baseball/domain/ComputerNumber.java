@@ -10,7 +10,7 @@ public class ComputerNumber {
     private static final int NUMBER_LENGTH = 3;
     private static final int START_RANGE = 1;
     private static final int END_LENGTH = 9;
-    public final List<Integer> computerNumber;
+    private final List<Integer> computerNumber;
 
     public ComputerNumber() {
         this.computerNumber = createRandomNumber();
@@ -33,5 +33,10 @@ public class ComputerNumber {
     private boolean isDuplicate(List<Integer> randomNums) {
         return NUMBER_LENGTH == randomNums.stream().distinct().count();
     }
+
+    public List<Integer> getComputerNumber(){
+        return computerNumber;
+    }
+
 
 }

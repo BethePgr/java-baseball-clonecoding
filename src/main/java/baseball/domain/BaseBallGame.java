@@ -8,27 +8,20 @@ public class BaseBallGame {
     private List<Integer> userNumber;
     private GameResult gameResult;
 
-    public BaseBallGame(String str){
-        this.computerNumber = new ComputerNumber().computerNumber;
+    public BaseBallGame(){
+        this.computerNumber = new ComputerNumber().getComputerNumber();
     }
 
-    private void inputUserNumber(String str){
-        this.userNumber = new UserNumber(str).userNumber;
+    public void inputUserNumber(String str){
+        this.userNumber = new UserNumber(str).getUserNumber();
     }
 
-    private void countScore(){
+    public void countScore(){
         this.gameResult = new GameResult(computerNumber,userNumber);
-    }
-
-    public List<Integer> getComputerNumber(){
-        return computerNumber;
     }
 
     public GameResult getGameResult(){
         return gameResult;
     }
 
-    public List<Integer> getUserNumber(){
-        return userNumber;
-    }
 }
