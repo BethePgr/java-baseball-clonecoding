@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 public class UserNumber {
 
     private static final int NUMBER_LENGTH = 3;
+    private static final int START_NUMBER = 1;
+    private static final int END_NUMBER = 9;
     public final List<Integer> userNumber;
 
     public UserNumber(String userInput) {
@@ -26,7 +28,7 @@ public class UserNumber {
     }
 
     private boolean isNumber(int[] userNums) {
-        return Arrays.stream(userNums).allMatch(num -> num >= 1 && num <= 9);
+        return Arrays.stream(userNums).allMatch(num -> num >= START_NUMBER && num <= END_NUMBER);
     }
 
     private boolean isNotDuplicate(int[] userNums) {
