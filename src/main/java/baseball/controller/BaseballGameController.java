@@ -14,28 +14,28 @@ public class BaseballGameController {
     private static final int CYCLE_END_NUMBER = 3;
 
     public void run() {
-        runOneCycle();
-        if (choiceRestart()) {
+        OutputView.printStartMessage();
+        do{
             runOneCycle();
-        }
+        }while(choiceRestart());
     }
 
     private void runOneCycle() {
-        OutputView.printStartMessage();
         List<Integer> computerNums = new ComputerNumber().computerNumber;
         gameStart(computerNums);
         OutputView.printClearMessage();
     }
 
     private void gameStart(List<Integer> computerNums){
+
         int strikeCount;
-        List<Integer> userNums = new UserNumber(InputView.printInputNumberMessage()).userNumber;
-        GameResult result = new GameResult(computerNums, userNums);
-        strikeCount = result.strikeCount;
-        new OutputView(result).printGameResult();
-        if(!isGameEnd(strikeCount)){
-            gameStart(computerNums);
-        }
+        do{
+            List<Integer> userNums = new UserNumber(InputView.printInputNumberMessage()).userNumber;
+            GameResult result = new GameResult(computerNums,userNums);
+            strikeCount = result.strikeCount;
+            new OutputView(result).printGameResult();
+        }while(!isGameEnd(strikeCount));
+
     }
 
 
