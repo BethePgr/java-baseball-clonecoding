@@ -8,7 +8,7 @@ public class User {
     private static final int INPUT_NUMBER_SIZE=3;
     private List<Integer> userInputNumber;
 
-    User(){
+    public User(){
         userInputNumber = new ArrayList<>();
     }
 
