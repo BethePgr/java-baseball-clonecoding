@@ -10,22 +10,23 @@ public class GameController {
 
     User user;
     Computer computer;
+    Judgement judgement;
 
     public GameController(){
         user = new User();
         computer = new Computer();
+        judgement = new Judgement();
     }
 
     public void gameStart(){
-        Judgement judgement = new Judgement();
 
         OutputView.printGameStartMessage();
         computer.generateRandomNumber();
-
+        judgement.cntClear();
         while(judgement.getStrikeCount() != 3) {
             String userInput = InputView.getUserInput();
             user.setUserInputNumber(userInput);
-            if(judgement.judgeNothing(user,computer)){
+            if(judgement.isNothing(user,computer)){
                 OutputView.printNothing();
             }else{
                 OutputView.printBallAndStrike(judgement.getBallCount(), judgement.getStrikeCount());

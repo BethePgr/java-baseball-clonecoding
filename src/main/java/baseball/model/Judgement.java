@@ -36,13 +36,18 @@ public class Judgement {
         }
     }
 
-    public boolean judgeNothing(User user, Computer computer){
+    public boolean isNothing(User user, Computer computer){
         judgeStrike(user,computer);
         judgeBall(user, computer);
         if(strikeCount == 0 && ballCount == 0){
             return true;
         }
         return false;
+    }
+
+    public void cntClear(){
+        strikeCount = 0;
+        ballCount = 0;
     }
 
     public int getStrikeCount() {
