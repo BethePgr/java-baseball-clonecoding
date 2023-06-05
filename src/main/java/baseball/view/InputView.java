@@ -10,7 +10,7 @@ public class InputView {
 
     public static String getUserInput(){
         System.out.println(GET_USER_INPUT_MESSAGE);
-        return InputException.isThreeDifferentDigits(Console.readLine());
+        return InputException.isValidInput(Console.readLine());
     }
 
     public static String getUserInputRestartOrNot(){
