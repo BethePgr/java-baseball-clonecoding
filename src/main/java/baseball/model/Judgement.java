@@ -45,5 +45,11 @@ public class Judgement {
         return false;
     }
 
+    public int getStrikeCount() {
+        return strikeCount;
+    }
 
+    public int getBallCount() {
+        return ballCount;
+    }
 }
