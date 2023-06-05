@@ -26,6 +26,5 @@ public class GameController {
             }
         }
         OutputView.printGameEndMessage();
-        OutputView.printGameRestartOrEndMessage();
     }
 }
