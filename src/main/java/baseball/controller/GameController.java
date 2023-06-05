@@ -4,6 +4,7 @@ import baseball.model.Computer;
 import baseball.model.Judgement;
 import baseball.model.User;
 import baseball.view.InputView;
+import baseball.view.OutputView;
 
 public class GameController {
 
@@ -12,11 +13,19 @@ public class GameController {
     Judgement judgement = new Judgement();
 
     public void gameStart(){
+        OutputView.printGameStartMessage();
         computer.generateRandomNumber();
 
-        while(true) {
+        while(judgement.getStrikeCount() != 3) {
             String userInput = InputView.getUserInput();
             user.setUserInputNumber(userInput);
+            if(judgement.judgeNothing(user,computer)){
+                OutputView.printNothing();
+            }else{
+                OutputView.printBallAndStrike(judgement.getBallCount(), judgement.getStrikeCount());
+            }
         }
+        OutputView.printGameEndMessage();
+        OutputView.printGameRestartOrEndMessage();
     }
 }
