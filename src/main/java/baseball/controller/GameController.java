@@ -19,13 +19,12 @@ public class GameController {
     }
 
     public void gameStart(){
-
         OutputView.printGameStartMessage();
         computer.generateRandomNumber();
         judgement.cntClear();
         while(judgement.getStrikeCount() != 3) {
-            String userInput = InputView.getUserInput();
-            user.setUserInputNumber(userInput);
+            String expectedNumberOfUser = InputView.getExpectedNumberOfUser();
+            user.setUserInputNumber(expectedNumberOfUser);
             if(judgement.isNothing(user,computer)){
                 OutputView.printNothing();
             }else{
@@ -37,8 +36,8 @@ public class GameController {
     }
 
     private void gameRestartOrNot() {
-        String userInput = InputView.getUserInputRestartOrNot();
-        if(userInput.equals("1")){
+        String valueOfRestartGameOrNot  = InputView.getValueOfRestartGameOrNot();
+        if(valueOfRestartGameOrNot.equals("1")){
             gameStart();
         }
     }
